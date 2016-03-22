@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Event Planner</title>
+  <title>Meetup Event Planner</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" crossorigin="anonymous">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-  <div class="navbar navbar-default">
+<div class="navbar navbar-default">
   <div class="text-center">
     </span>
       <button class="showEvents btn-lg navbar-btn">Show Events <span class="glyphicon glyphicon-th"></span></button>
@@ -22,9 +21,9 @@
   <div class="col-md-6 col-md-offset-3 firstForm input-group-lg">
     <form autocomplete="on">
       <div class="panel panel-default">
-        <h1>Sign in to create your event:</h1>
-        <label for="name">Full Name</label>
-        <input type="text" id="name" autocomplete="fname" autofocus></input>
+        <h1>Sign in to create your event</h1>
+        <label for="name">Name</label>
+        <input type="text" placeholder="Your Name" id="name" autocomplete="fname" autofocus></input>
         <label for="email">Your email</label>
         <input type="email" id="email" autocomplete="email"></input>
         <label for="password">Password</label>
@@ -37,35 +36,46 @@
         </div>
       </div>
   </div>
-  
-   <lable>What sort of event are you hosting?
-       <input list="events"> 
-    <datalist id="events">
-        <option value= "Party"></option>
-        <option value= "Meeting"></option>
-        <option value= "Conference Call"></option>
-        <option value= "Sports Game"></option>
-    </datalist>
-   </lable> 
 
-    <form>
-      <label for="event-name">
-      <span>Enter the name of your event:</span>
-      <input type="text" placeholder="Event Name"></label>
-      <lable for="eventDate">Date</lable>
-      <input type="datetime-local" id="date"></input>
+
+  <div class="col-md-6 col-md-offset-3 secondForm">
+    <div class="panel panel-default">
+      <label for="eventType">Event type</label>
+      <input list="eventType" placeholder="What sort of event?">
+        <datalist id="eventType">
+          <option value="Party"></option>
+          <option value="Meeting"></option>
+          <option value="Conference Call"></option>
+          <option value="Sports"></option>
+        </datalist>
+
+
+      <label for="eventName">Event Name</input></label>
+      <input type="text" placeholder="What are you going to call it?" id="eventName">
       <label for="eventStart">Start time</label>
-      <input type="time" id="eventStart"></input>
+      <input type="datetime-local" id="eventStart"></input>
       <label for="eventEnd">End time</label>
       <input type="datetime-local" id="eventEnd"></input>
       <label for="guestList">Guests</label>
-      <input type="text" id="guestList" placeholder="Who is invited?"></input>
+      <input type="text" placeholder="Who is invited?" id="guestList"></input>
       <label for="location">Location</label>
-      <input type="adress" id="location" placeholder="Dallas,Tx"></input>
+      <input type="address" id="location" placeholder="Dallas, Tx"></input>
       <div class="text-center">
+      <span>
+      <button class="lastOne btn-lg .btn-primary">Create your event</button>
+      </span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 eventTable">
+  </div>
 
+  <div data-bind="html: details" class="col-md-6 content">
 
-    </form>
+  </div>
+</div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+<!--<script src="jquery.js"></script>-->
 <script src="app.js"></script>
 </html>
